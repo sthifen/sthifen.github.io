@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Fonseca - Ingeniero Electrónico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--white);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        /* Profile Section */
+        .profile-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .education-item .institution {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item .details {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .period {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-item li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Technical Focus */
+        .focus-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .focus-item {
+            padding: 15px 20px;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 1.05em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .availability {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .container {
+                box-shadow: none;
+            }
+            
+            header {
+                background: var(--primary-color);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Steven Andrey Fonseca Bermúdez</h1>
+            <p class="subtitle">Ingeniero Electrónico | Desarrollador de Sistemas Embebidos</p>
+            <div class="contact-info">
+                <a href="tel:62404779">📱 6240-4779</a>
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank">🔗 LinkedIn</a>
+                <span>📍 Costa Rica</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Profile -->
+            <section id="perfil">
+                <h2>Perfil Profesional</h2>
+                <p class="profile-text">
+                    Estudiante avanzado de Ingeniería Electrónica en el Tecnológico de Costa Rica, orientado a programación de 
+                    bajo nivel y sistemas. Sólida base en C y arquitectura RISC-V, experiencia práctica en laboratorio y uso 
+                    habitual de Linux. Busco una posición junior / intermedio inicial donde pueda aportar criterio técnico real y 
+                    seguir creciendo en desarrollo de software y sistemas embebidos.
+                </p>
+            </section>
+
+            <!-- Education -->
+            <section id="educacion">
+                <h2>Educación</h2>
+                <div class="education-item">
+                    <h3>Ingeniería Electrónica</h3>
+                    <p class="institution">Tecnológico de Costa Rica (TEC)</p>
+                    <p class="details">Estudiante avanzado — 13 cursos restantes + TFG</p>
+                </div>
+                <div class="education-item">
+                    <h3>Técnico Medio en Electromecánica</h3>
+                    <p class="details">Educación técnica profesional</p>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experiencia">
+                <h2>Experiencia Técnica</h2>
+                
+                <div class="experience-item">
+                    <h3>Asistente de Laboratorio de Electrónica</h3>
+                    <p class="company">Tecnológico de Costa Rica</p>
+                    <p class="period">2024 - I Semestre</p>
+                    <ul>
+                        <li>Apoyo directo en laboratorios de electrónica analógica y digital</li>
+                        <li>Asistencia técnica a estudiantes durante prácticas de laboratorio</li>
+                        <li>Preparación, verificación y diagnóstico básico de equipos</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Práctica Técnica</h3>
+                    <p class="company">ElectroBeyco</p>
+                    <p class="period">1 mes</p>
+                    <ul>
+                        <li>Apoyo en tareas de electromecánica</li>
+                        <li>Participación en mantenimiento y diagnóstico técnico básico</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="habilidades">
+                <h2>Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Lenguajes de Programación</h3>
+                        <ul>
+                            <li><strong>C</strong> (nivel fuerte)</li>
+                            <li><strong>RISC-V Assembly</strong></li>
+                            <li>Python (en progreso)</li>
+                            <li>C++ (en progreso)</li>
+                            <li>C# (en progreso)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>HDL y Diseño Digital</h3>
+                        <ul>
+                            <li>Verilog</li>
+                            <li>SystemVerilog</li>
+                            <li>Vivado</li>
+                            <li>FPGA</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Herramientas y Sistemas</h3>
+                        <ul>
+                            <li><strong>Linux</strong> (uso diario)</li>
+                            <li>Git</li>
+                            <li>Fusion 360</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Otros Conocimientos</h3>
+                        <ul>
+                            <li>Godot (básico)</li>
+                            <li>Unity (nivel inicial)</li>
+                            <li>Diseño mecánico / CAD</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Focus -->
+            <section id="enfoque">
+                <h2>Enfoque Técnico</h2>
+                <div class="focus-list">
+                    <div class="focus-item">
+                        🔧 Programación estructurada y de bajo nivel
+                    </div>
+                    <div class="focus-item">
+                        💻 Comprensión de arquitectura de computadoras
+                    </div>
+                    <div class="focus-item">
+                        ⚡ Interés fuerte en sistemas embebidos y software cercano al hardware
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="availability">
+                ✓ Disponible para trabajo de medio tiempo
+            </div>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                Interés real en aprender en entornos exigentes y técnicos
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                © 2024 Steven Fonseca | Costa Rica
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
